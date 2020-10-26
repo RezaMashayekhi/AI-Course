@@ -13,13 +13,13 @@ class Tic{
     
     static char[][] bestmove;
     
-    public static int minimax(char[][] state, boolean ismax, int c){
+    public static int minimax(char[][] state, boolean ismax, int c){  // c is the depth that it goes in the tree of the minimax
         if(c==0){
             return 0;
         }
         LinkedList<Board> successor= fsuccessor(state, ismax);
         int u=utility(state,ismax,successor.size());
-        if (u!=-2)               // agar bazi edame nadasht (terminal)
+        if (u!=-2)               // if the game ends (terminal)
             return u;
         
         if(successor.size()!=0){
@@ -535,17 +535,17 @@ public class A {
         a.board=g;
         /*LinkedList <Board> b=Tic.fsuccessor(g, false);
         Tic.print(b.get(3).board);*/
-        System.out.println("shoma bazikone b hastin. satr ha va sotoon az 0 shomaregozari shodand. bala samte chap derayeye 0,0 hast");
+        System.out.println("You are the 'b' player. rows and colomns are indexed from 0 to 7. the top row is 0. The left colomn is 0");
         Tic.print(a.board);
-        int counter=0;      // mikhaham begooyam agar 20 nobat bazi shod tedad maraheli ke dar minimax pish miravad ziad shavad
-        int cc=5;           //tedad maraheli ke dar minimax pish miravad
+        int counter=0;      // if it passed 20 turns of the play, the depth for searching in the minimax tree increases.
+        int cc=5;           //the depth for searching in minimax tree
         while(true){
             if(counter==20)
                 cc=10;
             System.out.println("b turn");
-            System.out.println("satr entekhab konid az 0 ta 7");
+            System.out.println("Choose the row of your 'b'. From 0 ta 7");
             int r=var.nextInt();
-            System.out.println("sotoon entekhab konid az 0 ta 7");
+            System.out.println("Choose the column of your 'b'. From 0 ta 7");
             int c=var.nextInt();
             /*System.out.println("x ya o ");
             String xo=var.next();*/
@@ -555,11 +555,11 @@ public class A {
             if(Tic.utility(a.board,false,Tic.fsuccessor(a.board, false).size())!=-2){
                 int u=Tic.utility(a.board,false,Tic.fsuccessor(a.board, false).size());
                 if(u==-1)
-                    System.out.println("r bord");
+                    System.out.println("r wins");
                 if(u==1)
-                    System.out.println("b bord");
+                    System.out.println("b wins");
                 if(u==0)
-                    System.out.println("Tasavi");
+                    System.out.println("Draw");
                 break;
             }
             
@@ -570,11 +570,11 @@ public class A {
             if(Tic.utility(a.board,true,Tic.fsuccessor(a.board, true).size())!=-2){
                 int u=Tic.utility(a.board,true,Tic.fsuccessor(a.board, true).size());
                 if(u==-1)
-                    System.out.println("r bord");
+                    System.out.println("r Wins");
                 if(u==1)
-                    System.out.println("b bord");
+                    System.out.println("b Wins");
                 if(u==0)
-                    System.out.println("Tasavi");
+                    System.out.println("Draw");
                 break;
             }
         }
