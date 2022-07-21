@@ -1,5 +1,5 @@
 Implemented the AI system of the Non-player-character in the Reversi board-game using Minimax algorithm as a major project of the AI course at AUT. 
-Since the memory space I had could't store all the states, I have constrained the algorithm to check only five depths after its current state.
+Since the memory space I had could't store all the required states, I have constrained the algorithm to check only five depths after its current state.
 
 Here is an image of Reversi board game.
 
